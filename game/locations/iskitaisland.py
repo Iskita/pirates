@@ -3,7 +3,7 @@ from game import location
 import game.config as config
 from game.display import announce 
 from game.events import *
-import game.items as itemsdd
+import game.items as items
 
 class Island (location.Location):
 
@@ -111,3 +111,59 @@ class Trees (location.SubLocation):
                     at_least_one = True
                 if at_least_one == False:
                     announce ("You don't see one of those around.")
+
+class riddle_gate(location.SubLocation):  
+    def _init_(self):
+        super().__init__(m)
+        self.name="ridde_gate"
+        self.verbs['north'] = self
+        self.verbs['south'] = self
+        self.verbs['east'] = self
+        self.verbs['west'] = self
+        self.event_chance = 10
+        self.word=["w","a","t","e","r"]
+        self.item_after_puzzle = items.Cutlass()
+        self.open_gate = False
+    def enter (self):
+        announce("WElcome! You have to rearrange the alphabet to open this gate ")
+        if self.open_gate = True
+    def process_verb (self, verb, cmd_list, nouns):   
+        if (verb == "south" or verb == "north" or verb == "east" or verb == "west"):
+            config.the_player.next_loc = self.main_location.locations["beach"]
+        jumble=''.join(self.word)
+        return jumble
+        an=jumble
+        count1 = 0
+        count2 = self.event_chance = 10
+        while count1 < count2:
+            print("your word is :", an)
+            user_word=input("your word : ")
+
+            if user_word != an:
+                count1 +=1
+            else:
+                print("correct!you got it ")  
+                item = self.item_after_puzzle
+                config.the_player.add_to_inventory([item])
+                self.item_in_tree = None
+                config.the_player.go = True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
