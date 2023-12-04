@@ -166,7 +166,7 @@ class Riddle_gate(location.SubLocation):
 		
    
     def process_verb (self, verb, cmd_list, nouns):
-        if self.open_gate = True:
+        if self.open_gate == True:
             if (verb == "west" or verb == "north"):
                 config.the_player.next_loc = self.main_location.locations["volcano"]
             elif(verb == "east" or verb == "south"):
