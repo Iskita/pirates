@@ -92,15 +92,15 @@ class CaveBattle:
             self.creature_health = self.creature_health + self.heal_creature
             self.checkHealth()
         
-    def process(self):    
-        self.user_health = 100
+    def process(self, starting_health):    
+        self.user_health = starting_health
         self.creature_health = 100
         while self.battle_continue == True:
             print("----------------------------------")
             print("Your current health is", self.user_health)
             print("creature's current health is", self.creature_health)  
             print("\nATTACK CHOICES\n1. Close range attack\n2. Far range attack\n3. Heal")
-            self.attack_choice = eval(input("\nSelect an attack: "))
+            self.attack_choice = int(input("\nSelect an attack: "))
             if self.creature_health == 100:
                 self.creature_choice = random.randint(1,2)
             else:
@@ -111,11 +111,12 @@ class CaveBattle:
             
 
             
-                
+              
         if self.user_health < self.creature_health: 
             print("\nYou lost! Better luck next time!")
         else:
             print("\nYou won against creature!")
+        return self.user_health     
                 
                        
  

@@ -1,4 +1,4 @@
-from __future__ import annotations
+#from __future__ import annotations
 from game.display import announce
 from game.display import menu
 import random

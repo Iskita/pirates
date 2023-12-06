@@ -111,3 +111,4 @@ class Trees (location.SubLocation):
                     at_least_one = True
                 if at_least_one == False:
                     announce ("You don't see one of those around.")
+
